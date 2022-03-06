@@ -1,0 +1,24 @@
+name: cobi_flutter_service
+description: An implementation of services for Flutter.
+version: 1.0.0
+homepage: https://github.com/Cobinja/cobi-flutter-service/cobi_flutter_service
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.20.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cobi_flutter_service_android: ^1.0.0
+  cobi_flutter_service_platform_interface: ^1.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        default_package: cobi_flutter_service_android
