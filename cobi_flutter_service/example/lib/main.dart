@@ -85,8 +85,11 @@ void exampleFunction() {
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  CobiFlutterService.instance.initService(serviceRunner, false);
-  runApp(MyApp());
+  CobiFlutterService.instance.initService(serviceRunner, false)
+  .then((_) async {
+    await CobiFlutterService.instance.startService();
+    runApp(MyApp());
+  });
 }
 
 class MyApp extends StatefulWidget {

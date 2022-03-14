@@ -1,6 +1,6 @@
 name: cobi_flutter_service_android
 description: The Android implementation of cobi_flutter_service.
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/Cobinja/cobi-flutter-service/tree/main/cobi_flutter_service_android
 
 environment:
@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cobi_flutter_service_platform_interface: ^1.0.0
+  cobi_flutter_service_platform_interface: ^1.0.2
   shared_preferences: ^2.0.13
   shared_preferences_android: ^2.0.11
 

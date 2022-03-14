@@ -65,7 +65,7 @@ abstract class CobiFlutterServicePlatform {
     });
   }
   
-  void initService(CobiFlutterServiceCallback callback, bool autostartOnBoot);
+  Future<void> initService(CobiFlutterServiceCallback callback, bool autostartOnBoot);
   
   @protected
   void setIsolateCallback(Function() isolateCallback) {

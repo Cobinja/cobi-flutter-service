@@ -34,8 +34,8 @@ class CobiFlutterService {
   /// It should send 'stopped' via its sendPort once the work is finished.
   /// It can also send 'not stopped' in order to keep working.
   /// If it does not do so within 5 seconds, the service will be stopped forcefully
-  void initService(CobiFlutterServiceCallback callback, [bool autostartOnBoot = false]) {
-    _platform.initService(callback, autostartOnBoot);
+  Future<void> initService(CobiFlutterServiceCallback callback, [bool autostartOnBoot = false]) {
+    return _platform.initService(callback, autostartOnBoot);
   }
   
   /// This method sends data to the background isolate

@@ -113,7 +113,7 @@ class CobiFlutterServiceMethodChannelImplCommon extends CobiFlutterServicePlatfo
     }
   }
   
-  void initService(CobiFlutterServiceCallback callback, bool autostartOnBoot) async {
+  Future<void> initService(CobiFlutterServiceCallback callback, bool autostartOnBoot) async {
     await init(isolateFunctionMethodChannelCommon, callback, autostartOnBoot);
     bool? isRunning = await _methodChannel.invokeMethod("isServiceRunning");
     _streamControllerServiceRunning.sink.add(isRunning);

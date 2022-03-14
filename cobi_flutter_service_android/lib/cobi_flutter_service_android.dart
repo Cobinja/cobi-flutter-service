@@ -22,7 +22,7 @@ class MethodChannelImplAndroid extends CobiFlutterServiceMethodChannelImplCommon
   }
   
   @override
-  void initService(CobiFlutterServiceCallback callback, bool autostartOnBoot) {
-    init(_isolateFunctionAndroid, callback, autostartOnBoot);
+  Future<void> initService(CobiFlutterServiceCallback callback, bool autostartOnBoot) {
+    return init(_isolateFunctionAndroid, callback, autostartOnBoot);
   }
 }
