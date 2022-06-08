@@ -64,15 +64,12 @@ public class CobiFlutterServiceAndroidPlugin extends BroadcastReceiver
     final CobiFlutterServiceAndroidPlugin plugin = new CobiFlutterServiceAndroidPlugin();
     plugin.setupChannel(registrar.messenger(), registrar.context().getApplicationContext());
     plugin.registrar = registrar;
-    Log.d(TAG, "registerWith: number of plugins: " + plugins.size());
   }
   
   @Override
   public void onAttachedToEngine(@NonNull FlutterPluginBinding binding) {
-    Log.d(TAG, "onAttachedToEngine: number of plugins before setting up: " + plugins.size());
     setupChannel(binding.getBinaryMessenger(), binding.getApplicationContext());
     flutterAssets = binding.getFlutterAssets();
-    Log.d(TAG, "onAttachedToEngine: number of plugins after setting up: " + plugins.size());
   }
   
   private void setupChannel(BinaryMessenger messenger, Context context) {
@@ -94,17 +91,14 @@ public class CobiFlutterServiceAndroidPlugin extends BroadcastReceiver
     CobiFlutterServiceAndroidPlugin result = null;
     for (CobiFlutterServiceAndroidPlugin plugin : plugins) {
       if (plugin.service != null) {
-        Log.d(TAG, "getPluginFromService: plugin found from service");
         return plugin;
       }
     }
     for (CobiFlutterServiceAndroidPlugin plugin : plugins) {
       if (plugin != null) {
-        Log.d(TAG, "getPluginFromService: plugin found without service");
         return plugin;
       }
     }
-    Log.d(TAG, "getPluginFromService: no plugin found");
     return null;
   }
   
@@ -121,26 +115,21 @@ public class CobiFlutterServiceAndroidPlugin extends BroadcastReceiver
   public static Bitmap loadAssetBitmap(CobiFlutterService service, String name) {
     CobiFlutterServiceAndroidPlugin plugin = getPluginFromService(service);
     if (plugin == null) {
-      Log.d(TAG, "loadAssetBitmap: plugin is null");
       return null;
     }
     
     String key = loadAssetKey(plugin, name);
     if (key == null) {
-      Log.d(TAG, "loadAssetBitmap: key is null");
       return null;
     }
   
     AssetManager assetManager = plugin.context.getAssets();
-    Log.d(TAG, "loadAssetBitmap: AssetManager: " + assetManager);
     try {
       String[] assets = assetManager.list("flutter_assets/images");
       StringBuilder buf = new StringBuilder();
       for (String str : assets) {
         buf.append(str).append(", ");
       }
-      Log.d(TAG, "loadAssetBitmap: assets: " + buf.toString());
-      Log.d(TAG, "loadAssetBitmap: key: " + key);
       InputStream stream = assetManager.open(key);
       Bitmap bitmap = BitmapFactory.decodeStream(stream);
       stream.close();
