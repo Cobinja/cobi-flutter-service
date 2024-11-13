@@ -100,14 +100,13 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   
   _MyAppState() {
-    CobiFlutterService.instance.onServiceStateChanged.last
+    CobiFlutterService.instance.isServiceRunning
     .then((value) {
       setState(() {
         _isRunning = value ?? false;
       });
     });
     CobiFlutterService.instance.onServiceStateChanged.listen((isRunning) {
-      debugPrint("isRunning: ${isRunning ?? "false"}");
       setState(() {
         _isRunning = isRunning ?? false;
       });

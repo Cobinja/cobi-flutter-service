@@ -90,4 +90,6 @@ class CobiFlutterService {
   
   /// Listeners are informed when the service changes its state (running or not)
   Stream<bool?> get onServiceStateChanged => _platform.onServiceStateChanged;
+  
+  Future<bool?> get isServiceRunning => _platform.isServiceRunning();
 }
