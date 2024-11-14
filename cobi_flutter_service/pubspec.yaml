@@ -1,6 +1,6 @@
 name: cobi_flutter_service
 description: An implementation of services for Flutter.
-version: 1.0.2
+version: 1.0.3
 homepage: https://github.com/Cobinja/cobi-flutter-service/tree/main/cobi_flutter_service
 
 environment:
