@@ -288,12 +288,12 @@ public class CobiFlutterServiceAndroidPlugin extends BroadcastReceiver
     
     switch(action) {
       case "onServiceStopped":
-        if (activity != null) {
+        if (eventSink != null) {
           eventSink.success(false);
         }
         break;
       case "onServiceStarted":
-        if (activity != null) {
+        if (eventSink != null) {
           eventSink.success(true);
         }
         break;
